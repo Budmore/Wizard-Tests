@@ -2,7 +2,7 @@
 /bower_components
 /app/components
 /coverage
-/app/css/
+/app/css
 
 *.log
 *.sublime-*
