@@ -1,35 +1,46 @@
 <!doctype html>
 <html lang="pl" ng-app="navigationRules">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
-	<title>Navigation rules</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <title>Navigation rules</title>
 
-	<link rel="stylesheet" href="./app/components/bootstrap/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="./app/components/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="./app/styles/css/styles.css">
+    <link rel="stylesheet" href="./app/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./app/components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./app/styles/css/styles.css">
 
 </head>
 <body>
-	<div ng-view></div>
+
+    <header>
+        <div class="container">
+            <div class="page-header">
+                <h1>Navigation Rules <small>web application</small></h1>
+            </div>
+        </div>
+    </header>
 
 
 
+    <div ng-view></div>
 
 
-	<script src="./app/components/raven-js/dist/raven.min.js"></script>
-	<script src="./app/components/underscore/underscore.js"></script>
-	<script src="./app/components/angular/angular.js"></script>
-	<script src="./app/components/angular-route/angular-route.js"></script>
+
+    <script src="./app/components/raven-js/dist/raven.min.js"></script>
+    <script src="./app/components/underscore/underscore.js"></script>
+    <script src="./app/components/angular/angular.js"></script>
+    <script src="./app/components/angular-route/angular-route.js"></script>
 
 
-	<script src="./app/modules/settings.js"></script>
-	<script src="./app/modules/app.js"></script>
+    <script src="./app/modules/app.js"></script>
+    <script src="./app/modules/urls.js"></script>
+    <script src="./app/modules/settings.js"></script>
 
-	<script src="./app/modules/System/urls.js"></script>
-	<script src="./app/modules/System/auth/LoginController.js"></script>
+
+    <script src="./app/modules/navrules-program/init.js"></script>
+    <script src="./app/modules/navrules-program/controllers/StepController.js"></script>
 
 </body>
 </html>
