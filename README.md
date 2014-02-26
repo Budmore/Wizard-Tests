@@ -1,27 +1,14 @@
-SaasManager-Web
-===============
+Navigation Rules
+=================
 
-Zmiany
----
-Bootstrap 3.0!
-LESS - nie wrzucamy do repozytorium plikow css
-Grunt
-indykacja - taby zamiast spacji
-nomenklatura - service z malych liter bez $,
-
-
-
-
-
-
-Launching project - start working with Grunt:
-
+Launching project:
 ---
 http://gruntjs.com/getting-started#installing-the-cli
-1) npm install -g grunt-cli
-2) Change to the project's root directory.
-3) Install project dependencies with npm install.
-4) Run Grunt with grunt.
+
+
+`npm install -g grunt-cli`
+`npm install`
+`grunt`
 
 
 

@@ -1,13 +1,8 @@
 /node_modules
-/dist
-/generated
-/logs
+/bower_components
+/app/components
 /coverage
 /app/css/
 
-
-tags
-TAGS
-libpeerconnection.log
 *.log
 *.sublime-*

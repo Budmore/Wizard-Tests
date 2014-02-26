@@ -27,10 +27,7 @@ module.exports = function(grunt) {
 					// optimization: 2
 				},
 				files: {
-					"app/styles/css/bootstrap.css": "app/styles/less/bootstrap.less",
-					"app/styles/css/smartadmin-production.css": "app/styles/less/smartadmin-production.less",
-					"app/styles/css/custom.css": "app/styles/less/custom.less",
-					"app/styles/css/overrides.css": "app/styles/less/overrides.less"
+					"app/styles/css/styles.css": "app/styles/less/styles.less"
 				}
 			}
 		},
@@ -47,6 +44,5 @@ module.exports = function(grunt) {
 	});
 
 	// Default task(s).
-	grunt.registerTask('default', ['watch']);
-	grunt.registerTask('server', ['connect','watch']);
+	grunt.registerTask('default', ['connect','watch']);
 };
