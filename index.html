@@ -8,6 +8,7 @@
     <title>Navigation rules</title>
 
     <link rel="stylesheet" href="./app/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./app/components/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="./app/components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="./app/styles/css/styles.css">
 
@@ -23,13 +24,15 @@
     </header>
 
 
+    <div class="wrapper">
+        <div ng-view></div>
+    </div>
 
-    <div ng-view></div>
 
-
-
-    <script src="./app/components/raven-js/dist/raven.min.js"></script>
+    <script src="./app/components/jquery/dist/jquery.min.js"></script>
+    <script src="./app/components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./app/components/underscore/underscore.js"></script>
+    <script src="./app/components/raven-js/dist/raven.min.js"></script>
     <script src="./app/components/angular/angular.js"></script>
     <script src="./app/components/angular-route/angular-route.js"></script>
 
