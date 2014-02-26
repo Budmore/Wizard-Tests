@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pl" ng-app="navigationRules">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+	<title>Navigation rules</title>
+
+	<link rel="stylesheet" href="./app/styles/css/bootstrap.css">
+	<link rel="stylesheet" href="./app/styles/css/smartadmin-production.css">
+	<link rel="stylesheet" href="./app/components/font-awesome-4.0.3/css/font-awesome.min.css">
+
+</head>
+<body>
+<!--
+	<div class="loader" ng-show="mainLoaderVisible">
+		<img src="./app/imgages/ajax-loader.gif" alt="loader">
+	</div>
+ -->
+	<div ng-view></div>
+	<!-- <div ng-controller="SessionController" ng-init="checkSession()"></div> -->
+
+
+	<script src="./app/components/raven/raven.min.js"></script>
+	<script src="./app/components/underscore/underscore.min.js"></script>
+
+	<script src="./app/components/angular/angular-1.2.10/angular.js"></script>
+	<script src="./app/components/angular/angular-1.2.10/angular-route.js"></script>
+	<!--
+	<script src="./app/components/angular/angular-1.2.10/angular-resource.js"></script>
+	<script src="./app/components/angular/angular-1.2.10/angular-sanitize.js"></script>
+	-->
+	<!--
+	<script src="./app/components/angular-ui/angular-ui.min.js"></script>
+	<script src="./app/components/angular-ui/angular-ui-ieshiv.min.js"></script>
+	<script src="./app/components/angular-ui-bootstrap/ui-bootstrap-tpls-0.6.0.min.js"></script> -->
+
+
+	<script src="./app/modules/settings.js"></script>
+
+
+	<script src="./app/modules/app.js"></script>
+
+	<script src="./app/modules/System/urls.js"></script>
+	<script src="./app/modules/System/auth/LoginController.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+/node_modules
+/dist
+/generated
+/logs
+/coverage
+/app/css/
+
+
+tags
+TAGS
+libpeerconnection.log
+*.log
+*.sublime-*

@@ -1,0 +1,57 @@
+<style> body { background: url(app/img/gfx/bg-login.jpg) } </style>
+
+
+<div class="container-fluid">
+	<div class="row" ng-controller="LoginController" ng-init="init()">
+
+		<div class="login-box">
+			<form name="registerForm" id="login-form" class="smart-form client-form" novalidate>
+				<header>
+					Sign In
+
+					<div class="lang-switch">
+						<!-- TODO: try DRY -->
+						<a href ng-class="{'current': lang == 'pl'}" ng-click="switchLang('pl')" class="current">pl</a>
+						|
+						<a href ng-class="{'current': lang == 'en'}" ng-click="switchLang('en')">en</a>
+					</div>
+				</header>
+
+				<fieldset>
+
+					<section>
+						<label class="input"> <i class="icon-append fa fa-user"></i>
+							<input type="email" name="email" placeholder="E-mail" ng-model="formData.email" required>
+							<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input"> <i class="icon-append fa fa-lock"></i>
+							<input type="password" name="password" placeholder="Password" ng-model="formData.password" required>
+							<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b>
+						</label>
+					</section>
+
+					<section>
+						<label class="input"> <i class="icon-append fa fa-lock"></i>
+							<input type="password" name="password" placeholder="Password" ng-model="formData.password" required>
+							<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b>
+						</label>
+					</section>
+
+					<footer>
+						<div class="note pull-left">
+							<a ng-href="#/register">Create an account</a> | <a ng-href="#/remind-password">Forgot password?</a>
+						</div>
+						<button class="btn btn-primary" ng-disabled="!registerForm.$valid">
+							Sign in
+						</button>
+					</footer>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+</div>
+
