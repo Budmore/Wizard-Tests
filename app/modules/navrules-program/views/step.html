@@ -3,18 +3,24 @@
 		<div class="col-sm-8">
 			<section class="box">
 				<div class="box-inner-slim">
-					<img src="http://placehold.it/1600x1200" class="img-responsive" alt="navigation-rules-step1">
+					<img ng-src="{{ imageUrl }}" class="img-responsive" alt="navigation-rules-step1">
 				</div>
 			</section>
 			<section class="box">
 				<div class="box-inner text-center">
 					<div data-toggle="buttons">
-						<label class="btn btn-default">
-							<input type="checkbox"> Navigaton Rule
-						</label>
-						<label class="btn btn-default">
-							<input type="checkbox"> Display outlines
-						</label>
+						<button
+							type="button"
+							class="btn btn-default"
+							ng-model="showRule"
+							ng-click="showNavigationRule()"> Navigaton Rule
+						</button>
+						<button
+							type="button"
+							class="btn btn-default"
+							ng-model="showOutline"
+							ng-click="changeImage()"> Display outlines
+						</button>
 					</div>
 				</div>
 			</section>
@@ -23,70 +29,17 @@
 			<section class="box">
 				<div class="box-inner">
 
-					<form class="form-horizontal" role="form">
+					<form class="form-horizontal" name="questionSet">
 						<fieldset>
-							<legend class="text-center"><h3>Step 1/10</h3></legend>
-							<div class="form-group">
-								<label for="select-1">1. What type of vessel?</label>
-								<select id="select-1" name="vessel_type" class="form-control">
-									<option value="0">Power-driven vessel</option>
-									<option value="1">Fishing vessel</option>
-									<option value="2">Vessel constrained by her draught</option>
-									<option value="3">Vessel restricted in her ability to manoeuvre</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="select-2">2. Which part do you see?</label>
-								<select id="select-2" name="vessel_aspect" class="form-control">
-									<option value="0">Port side</option>
-									<option value="1">Starboard</option>
-									<option value="2">Forward</option>
-									<option value="3">Aft</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="select-3">3. What length?</label>
-								<select id="select-3" name="vessel_aspect" class="form-control">
-									<option value="0">Port side</option>
-									<option value="1">Starboard</option>
-									<option value="2">Forward</option>
-									<option value="3">Aft</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="select-4">4. Day shape?</label>
-								<select id="select-4" name="vessel_aspect" class="form-control">
-									<option value="0">Port side</option>
-									<option value="1">Starboard</option>
-									<option value="2">Forward</option>
-									<option value="3">Aft</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="select-5">5. Sound signal?</label>
-								<select id="select-5" name="vessel_aspect" class="form-control">
-									<option value="0">Port side</option>
-									<option value="1">Starboard</option>
-									<option value="2">Forward</option>
-									<option value="3">Aft</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="select-6">6. Underway?</label>
-								<select id="select-6" name="vessel_aspect" class="form-control">
-									<option value="0">Port side</option>
-									<option value="1">Starboard</option>
-									<option value="2">Forward</option>
-									<option value="3">Aft</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="select-7">7. Making way?</label>
-								<select id="select-7" name="vessel_aspect" class="form-control">
-									<option value="0">Port side</option>
-									<option value="1">Starboard</option>
-									<option value="2">Forward</option>
-									<option value="3">Aft</option>
+							<legend class="text-center"><h3>Step {{ stepNr }}/{{ steps.length }}</h3></legend>
+							<div class="form-group" ng-repeat="question in step.questionSet">
+								<label for="select-{{ $index }}">{{ $index + 1}}. {{ question.question }}</label>
+								<select name="vessel_type"
+									id="select-{{ $index }}"
+									class="form-control"
+									ng-model="answer.selectedAnswer"
+									ng-options="answer as answer.name for answer in question.answers"
+									>
 								</select>
 							</div>
 						</fieldset>
@@ -99,16 +52,16 @@
 		<div class="col-sm-12">
 			<div class="button-wrapper clearfix">
 				<button type="button" class="btn btn-default">Prev</button>
-				<button type="button" class="btn btn-primary pull-right disabled">Next</button>
+				<button type="button" class="btn btn-primary pull-right" ng-disabled="!questionSet.$valid" ng-click="nextStep()">Next</button>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
-			<section class="box">
+			<section class="box" ng-show="showRule">
 				<div class="box-inner">
 					<div class="nav-rules">
-						<h2>Navigation Rule 23 <small>Statki idące wprost na siebie</small></h2>
+						<h2>Navigation Rule 23 <small ng-if="false">Statki idące wprost na siebie</small></h2>
 						<p>
 							Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices po
 						</p>
