@@ -1,36 +1,55 @@
-angular.module('navrules-program').controller('StepController', ['$scope', 'modelHelper', '$exceptionHandler',
-	function($scope, modelHelper, $exceptionHandler) {
+angular.module('navrules-program').controller('StepController', ['$scope', '$location', '$exceptionHandler', 'modelHelper',
+	function($scope, $location, $exceptionHandler, modelHelper) {
 		'use strict';
-		var self=this;
 
-		this.getSteps = function() {
+		function getSteps() {
 			modelHelper.getSteps().then(function() {
-				$scope.steps = modelHelper.getModel();
-				$scope.stepNr = 1;
+				$scope.steps = modelHelper.steps.getModel();
+				$scope.stepNr = 0;
 				$scope.nextStep();
 			}, function(reason) {
 				$exceptionHandler(reason);
 			});
-		};
+		}
 
-		this.activeStep = function(nrStep) {
+		function activeStep(nrStep) {
 			$scope.step = $scope.steps[nrStep - 1];
-			console.log($scope.step);
 
 			$scope.imageUrl = $scope.step.imageUrl.question;
 			$scope.showOutline = false;
-			$scope.showNavRule = false;
-		};
+			$scope.showRule = false;
+		}
 
 		$scope.nextStep = function() {
-			console.log('nextStep', $scope.stepNr, $scope.steps.length);
-			self.activeStep($scope.stepNr);
+			$scope.showOutline = false;
+			$scope.showRule = false;
 
 			if ($scope.stepNr < $scope.steps.length) {
 				$scope.stepNr += 1;
 			}
+
+			activeStep($scope.stepNr);
+
+			if ($scope.stepNr === $scope.steps.length ){
+				$location.path('/result');
+			}
 		};
 
+		$scope.prevStep = function() {
+			$scope.showOutline = false;
+			$scope.showRule = false;
+
+			if ($scope.stepNr > 1 ) {
+				$scope.stepNr -= 1;
+			}
+
+			activeStep($scope.stepNr);
+		};
+
+		//TODO: remove this method
+		$scope.deb = function() {
+			console.log('step', $scope.step);
+		};
 
 		$scope.changeImage = function() {
 
@@ -43,12 +62,11 @@ angular.module('navrules-program').controller('StepController', ['$scope', 'mode
 		};
 
 		$scope.showNavigationRule = function() {
-			console.log('clicked');
 			$scope.showRule = !$scope.showRule;
 		};
 
 		(function() {
-			self.getSteps();
+			getSteps();
 		})();
 
 	}

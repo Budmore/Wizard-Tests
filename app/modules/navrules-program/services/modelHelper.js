@@ -10,19 +10,22 @@ angular.module('navrules-program')
 		 *	This is concept of keeping model in service with setter and getter
 		 */
 
-		var steps = [];
-
-		this.getModel = function() {
-			return steps;
+		var modelClass = {
+			model: [],
+			getModel: function() {
+				return this.model;
+			},
+			pushDataToModel: function(data) {
+				this.model.push(data);
+			},
+			setModel: function(data) {
+				this.model = data;
+			}
 		};
 
-		this.pushDataToModel = function(data) {
-			steps.push(data);
-		};
+		this.steps = Object.create(modelClass);
 
-		this.setModel = function(data) {
-			steps = data;
-		};
+
 
 
 		this.getSteps = function() {
@@ -101,7 +104,7 @@ angular.module('navrules-program')
 					outline: "./app/img/vessels/1600x1118.gif"
 				},
 				navigationRule: [
-					{title: 'Navigation rule 23.', description: 'Lorem ipsum dolor sit amet senin.'},
+					{rule: 'Rule 30', title: 'Anchored Vessels and Vessels Aground', description: 'Lorem ipsum dolor<br> sit <strong>amet</strong> senin.'},
 				]
 			},
 
@@ -232,8 +235,8 @@ angular.module('navrules-program')
 					]
 				}],
 				imageUrl: {
-					question: "./app/img/vessels/1600x1117.gif",
-					outline: "./app/img/vessels/1600x1118.gif"
+					question: "./app/img/vessels/400x300.png",
+					outline: "./app/img/vessels/1600x900.png"
 				},
 				navigationRule: [
 					{title: 'Navigation rule 23.', description: 'Lorem ipsum dolor sit amet senin.'},
@@ -540,7 +543,7 @@ angular.module('navrules-program')
 					outline: "./app/img/vessels/1600x1118.gif"
 				},
 				navigationRule: [
-					{title: 'Navigation rule 23.', description: 'Lorem ipsum dolor sit amet senin.'},
+					{rule: 'Rule 30', title: 'Anchored Vessels and Vessels Aground', description: 'Lorem ipsum dolor<br> sit amet senin.'},
 				]
 			}
 			];
@@ -558,7 +561,7 @@ angular.module('navrules-program')
 			);
 			*/
 
-			self.setModel(data);
+			this.steps.setModel(data);
 			deferred.resolve(data);
 
 			return deferred.promise;

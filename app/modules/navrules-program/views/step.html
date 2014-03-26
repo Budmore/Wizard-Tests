@@ -13,13 +13,15 @@
 							type="button"
 							class="btn btn-default"
 							ng-model="showRule"
+							ng-class="{'active':showRule}"
 							ng-click="showNavigationRule()"> Navigaton Rule
 						</button>
 						<button
 							type="button"
 							class="btn btn-default"
 							ng-model="showOutline"
-							ng-click="changeImage()"> Display outlines
+							ng-click="changeImage()"
+							ng-class="showOutline"> Display outlines
 						</button>
 					</div>
 				</div>
@@ -34,10 +36,11 @@
 							<legend class="text-center"><h3>Step {{ stepNr }}/{{ steps.length }}</h3></legend>
 							<div class="form-group" ng-repeat="question in step.questionSet">
 								<label for="select-{{ $index }}">{{ $index + 1}}. {{ question.question }}</label>
-								<select name="vessel_type"
+								<select
+									name="vessel_type"
 									id="select-{{ $index }}"
 									class="form-control"
-									ng-model="answer.selectedAnswer"
+									ng-model="question.selectedAnswer"
 									ng-options="answer as answer.name for answer in question.answers"
 									>
 								</select>
@@ -51,21 +54,19 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="button-wrapper clearfix">
-				<button type="button" class="btn btn-default">Prev</button>
+				<button type="button" class="btn btn-default" ng-click="prevStep()">Prev</button>
+				<button type="button" class="btn btn-warning" ng-click="deb()">debugger</button>
 				<button type="button" class="btn btn-primary pull-right" ng-disabled="!questionSet.$valid" ng-click="nextStep()">Next</button>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
-			<section class="box" ng-show="showRule">
+			<section class="box" ng-if="showRule">
 				<div class="box-inner">
-					<div class="nav-rules">
-						<h2>Navigation Rule 23 <small ng-if="false">Statki idące wprost na siebie</small></h2>
-						<p>
-							Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices po
-						</p>
-						<p>Pellentesque tellus. Fusce nonummy nisl pede, cursus wisi quis suscipit nibh purus, nec odio id lorem. Pellentesque felis. Nam libero adipiscing elit. Sed ac nulla. Pellentesque dolor dictum eu, elit. Aliquam ut nulla ligula placerat at, egestas blandit, quam. Donec in quam nec elit nibh, interdum wisi eget nunc eget magna. Fusce nisl a arcu. In viverra auctor, urna eget sem leo ac ornare interdum, lacus. Aenean gravida tellus dolor sit amet ligula. Ut sodales libero. Nullam pharetra sit amet, consectetuer adipiscing rutrum. In vitae urna. Suspendisse turpis gravida sagittis. Aliquam ultrices et, felis. Fusce purus fermentum facilisis. Maecenas facilisis hendrerit. Maecenas wisi. Morbi ultrices posuere vehicula wisi, eu augue quis pellentesque at, fermentum vel, urna. Aliquam quis libero. Aenean pede turpis eget elit aliquet vulputate, arcu sit amet, ante. Pellentesque malesuada congue. Nunc at augue. Sed elementum, sapien et mauris vehicula dolor lacus, suscipit elementum vitae, sollicitudin fringilla. Phasellus ornare at, tellus. Ut turpis. Pellentesque mattis lorem lorem pretium wisi, ullamcorper feugiat, urna tortor, a sapien. Nam lectus feugiat tortor augue, ullamcorper ut, tincidunt rutrum et, placerat quis, varius.</p>
+					<div class="nav-rules" ng-repeat="item in step.navigationRule" >
+						<h2>{{ item.rule }}<small ng-if="false">{{ item.title }}</small></h2>
+						<div ng-bind-html="item.description | safe"></div>
 					</div>
 				</div>
 			</section>
