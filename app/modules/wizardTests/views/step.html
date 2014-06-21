@@ -1,0 +1,75 @@
+<div class="step container" ng-controller="StepController">
+	<div class="row">
+		<div class="col-sm-8">
+			<section class="box">
+				<div class="box-inner-slim">
+					<img ng-src="{{ imageUrl }}" class="img-responsive" alt="navigation-rules-step1">
+				</div>
+			</section>
+			<section class="box">
+				<div class="box-inner text-center">
+					<div data-toggle="buttons">
+						<button
+							type="button"
+							class="btn btn-default"
+							ng-model="showRule"
+							ng-class="{'active':showRule}"
+							ng-click="showNavigationRule()"> Navigaton Rule
+						</button>
+						<button
+							type="button"
+							class="btn btn-default"
+							ng-model="showOutline"
+							ng-click="changeImage()"
+							ng-class="showOutline"> Display outlines
+						</button>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="col-sm-4">
+			<section class="box">
+				<div class="box-inner">
+
+					<form class="form-horizontal" name="questionSet">
+						<fieldset>
+							<legend class="text-center"><h3>Step {{ stepNr }}/{{ steps.length }}</h3></legend>
+							<div class="form-group" ng-repeat="question in step.questionSet">
+								<label for="select-{{ $index }}">{{ $index + 1}}. {{ question.question }}</label>
+								<select
+									name="vessel_type"
+									id="select-{{ $index }}"
+									class="form-control"
+									ng-model="question.selectedAnswer"
+									ng-options="answer as answer.name for answer in question.answers"
+									>
+								</select>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="button-wrapper clearfix">
+				<button type="button" class="btn btn-default" ng-click="prevStep()">Prev</button>
+				<button type="button" class="btn btn-warning" ng-click="deb()">debugger</button>
+				<button type="button" class="btn btn-primary pull-right" ng-disabled="!questionSet.$valid" ng-click="nextStep()">Next</button>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<section class="box" ng-if="showRule">
+				<div class="box-inner">
+					<div class="nav-rules" ng-repeat="item in step.navigationRule" >
+						<h2>{{ item.rule }}<small ng-if="false">{{ item.title }}</small></h2>
+						<div ng-bind-html="item.description | safe"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
