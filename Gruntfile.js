@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+	'use strict';
 
 	// grunt plugin
 	grunt.loadNpmTasks('grunt-contrib-connect');
@@ -12,8 +13,7 @@ module.exports = function(grunt) {
 				options: {
 					port: 8000,
 					hostname: '0.0.0.0',
-					base: '.',
-					// keepalive: true,
+					base: './app/',
 					livereload: true,
 				}
 			}
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 					// optimization: 2
 				},
 				files: {
-					"app/styles/css/styles.css": "app/styles/less/styles.less"
+					'app/styles/css/styles.css': 'app/styles/less/styles.less'
 				}
 			}
 		},
@@ -45,4 +45,12 @@ module.exports = function(grunt) {
 
 	// Default task(s).
 	grunt.registerTask('default', ['connect','watch']);
+
+	grunt.registerTask('serve', function () {
+
+		grunt.task.run([
+			'connect',
+			'watch'
+		]);
+	});
 };

@@ -1,27 +1,20 @@
 {
   "name": "navrules",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/Budmore/navrules",
-  "authors": [
-    "Budmore <jmach@neoteric.eu>"
-  ],
+  "author": "Budmore <jakub@budmore.pl>",
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "app/components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
-    "angular": "~1.2.13",
+    "angular": "~1.2.18",
+    "font-awesome": "~4.1.0",
     "bootstrap": "~3.1.1",
-    "font-awesome": "~4.0.3",
-    "raven-js": "~1.1.11",
-    "requirejs": "~2.1.11",
+    "angular-cookies": "~1.2.18",
+    "angular-route": "~1.2.18",
+    "requirejs": "~2.1.14",
+    "requirejs-domready": "~2.0.1",
     "underscore": "~1.6.0",
-    "angular-route": "~1.2.13"
+    "angular-sanitize": "~1.2.18",
+    "angular-resource": "~1.2.18"
   },
   "private": true
 }
