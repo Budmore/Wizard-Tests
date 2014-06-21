@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <title>Navigation rules</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/css/styles.css">
+
+</head>
+<body>
+
+
+<!--
+    <div ng-include="rootTemplate" scope="RootController"></div>
+ -->
+
+
+    <header>
+        <div class="container">
+            <h1>Navigation Rules <small>web application</small></h1>
+        </div>
+    </header>
+
+
+    <div class="wrapper">
+        <div ng-view></div>
+    </div>
+
+
+    <script src="bower_components/requirejs/require.js" data-main="modules/require-config.js"></script>
+</body>
+</html>

@@ -1,6 +1,5 @@
 /node_modules
-/bower_components
-/app/components
+/app/bower_components
 /coverage
 /app/css
 

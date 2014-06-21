@@ -1,0 +1,52 @@
+{
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": false,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "globals": {
+    "angular": false,
+    /* AMD */
+    "define": false,
+    /* Custom */
+    "ngRoutes": false,
+    "ngSanitize": false,
+    "ngCookies": false,
+    "ngResource": false,
+    "camelcase": false,
+    "_": false,
+    "$": false,
+    "t": true,
+
+    /* Tests */
+    "after": false,
+    "afterEach": false,
+    "before": false,
+    "beforeEach": false,
+    "browser": false,
+    "describe": false,
+    "ddescribe": false,
+    "dump": false,
+    "expect": false,
+    "inject": false,
+    "it": false,
+    "iit": false,
+    "jasmine": false,
+    "spyOn": false,
+    "angular": false,
+    "xit": false
+  }
+}
