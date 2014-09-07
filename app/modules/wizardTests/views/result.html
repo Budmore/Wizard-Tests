@@ -2,7 +2,7 @@
 
 	<div class="row margin-bottom-20">
 		<div class="box-chart">
-			<div easypiechart options="options" percent="percent">
+			<div easypiechart options="options" percent="result.data.percent">
 				<span class="percent-value">{{ stepValue }}</span>
 			</div>
 		</div>
@@ -23,12 +23,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>23</td>
-									<td></td>
+								<tr ng-repeat="answer in result.data.answers">
 									<td>
-										<button type="button" class="btn btn-default btn-success">
-											<i class="fa fa-smile-o"> check</i></button>
+										<div ng-repeat="rule in answer.resources" ng-init="innerLast = this.$last">
+											{{ rule.name }}
+										</div>
+									</td>
+									<td>
+										<div ng-repeat="rule in answer.resources">
+											{{ rule.title }}
+										</div>
+									</td>
+									<td>
+										<button type="button" class="btn btn-default">
+											<i class="fa" ng-class="{'fa-smile-o': isCorrectAnswer(answer), 'fa-meh-o': !isCorrectAnswer(answer)}"></i>
+											check
+										</button>
 									</td>
 								</tr>
 							</tbody>

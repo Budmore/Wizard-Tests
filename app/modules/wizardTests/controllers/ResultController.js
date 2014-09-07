@@ -2,24 +2,16 @@
 	'use strict';
 	define([], function() {
 
-		var ResultController = function($scope) {
+		var ResultController = function($scope, stepService, $http) {
 
-			$scope.percent = 65;
+			$http.get('mockups/model-result.json').then(
+				function success(response) {
+					stepService.result.setModel(response.data);
+				}
+			);
 
-/*
-		barColor: '#ef1e25',
-		trackColor: '#f9f9f9',
-		scaleColor: '#dfe0e0',
-		scaleLength: 5,
-		lineCap: 'round',
-		lineWidth: 3,
-		size: 110,
-		rotate: 0,
-		animate: {
-			duration: 1000,
-			enabled: true
-		},
-*/
+			$scope.result = stepService.result.getModel();
+
 			$scope.options = {
 				barColor: '#5cb85c',
 				scaleColor: false,
@@ -37,14 +29,17 @@
 
 			};
 
-
-
-
-
-
+			/**
+			 *	@name isCorrect
+			 *	@param {Object} answer
+			 *	@return {Bolean}
+			 */
+			$scope.isCorrectAnswer = function(answer) {
+				return answer.selectedAnswerId === answer.correctedAnswerId;
+			};
 		};
 
-		return ['$scope', ResultController];
+		return ['$scope', 'stepService', '$http', ResultController];
 	});
 }());
 

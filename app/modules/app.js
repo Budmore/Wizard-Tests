@@ -1,6 +1,3 @@
-// var t;
-// t = {pl: {}, en: {}};
-
 define( [
 	'angular',
 	'underscore',

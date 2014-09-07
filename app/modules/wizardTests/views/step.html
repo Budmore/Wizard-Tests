@@ -1,4 +1,5 @@
-<div class="step container" ng-controller="StepController">
+<div class="step container" ng-controller="StepController" ng-init="init()">
+	<pre>
 	<div class="row">
 		<div class="col-sm-8">
 			<section class="box">
@@ -64,7 +65,7 @@
 		<div class="col-sm-12">
 			<section class="box" ng-if="showRule">
 				<div class="box-inner">
-					<div class="nav-rules" ng-repeat="item in step.navigationRule" >
+					<div class="nav-rules" ng-repeat="item in step.resources" >
 						<h2>{{ item.rule }}<small ng-if="false">{{ item.title }}</small></h2>
 						<div ng-bind-html="item.description | safe"></div>
 					</div>

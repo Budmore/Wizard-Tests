@@ -2,22 +2,40 @@
 	'use strict';
 	define([], function() {
 
-		var StepController = function($scope, $location, stepService) {
+		var StepController = function($scope, $location, $http, stepService) {
+			//
+			// TODO: remove mocked data
+			//
+			$http.get('mockups/model.json').success(function(response) {
+				stepService.steps.setModel(response);
+				$scope.nextStep();
+			});
 
-			function getSteps() {
-				stepService.getSteps().then(function() {
-					$scope.steps = stepService.steps.getModel();
-					$scope.stepNr = 0;
-					$scope.nextStep();
-				}, function() {
-					//appMessages.error('aa')
-					//$exceptionHandler(reason);
-				});
-			}
+
+			$scope.init = function() {
+				// $scope.getSteps();
+				$scope.stepNr = 0;
+				$scope.steps = stepService.steps.getModel();
+			};
+
+
+			/**
+			 *	@name getSteps
+			 *	@description Get questions and set it to the model.
+			 */
+			$scope.getSteps = function() {
+				stepService.getSteps().then(
+                    function success(response) {
+                    	stepService.steps.setModel(response);
+						$scope.nextStep();
+					}, function error() {
+						// Handle errors
+					}
+				);
+			};
 
 			function activeStep(nrStep) {
-				$scope.step = $scope.steps[nrStep - 1];
-
+				$scope.step = $scope.steps.data[nrStep - 1];
 				$scope.imageUrl = $scope.step.imageUrl.question;
 				$scope.showOutline = false;
 				$scope.showRule = false;
@@ -27,13 +45,13 @@
 				$scope.showOutline = false;
 				$scope.showRule = false;
 
-				if ($scope.stepNr < $scope.steps.length) {
+				if ($scope.stepNr < $scope.steps.data.length) {
 					$scope.stepNr += 1;
 				}
 
 				activeStep($scope.stepNr);
 
-				if ($scope.stepNr === $scope.steps.length ){
+				if ($scope.stepNr === $scope.steps.data.length ){
 					$location.path('/result');
 				}
 			};
@@ -47,11 +65,6 @@
 				}
 
 				activeStep($scope.stepNr);
-			};
-
-			//TODO: remove this method
-			$scope.deb = function() {
-				console.log('step', $scope.step);
 			};
 
 			$scope.changeImage = function() {
@@ -68,12 +81,9 @@
 				$scope.showRule = !$scope.showRule;
 			};
 
-			(function() {
-				getSteps();
-			})();
 		};
 
-		return ['$scope', '$location', 'stepService', StepController];
+		return ['$scope', '$location', '$http', 'stepService', StepController];
 	});
 }());
 
