@@ -18,6 +18,7 @@ function (angular) {
 		'ngResource',
 		'ngSanitize',
 		'ngRoute',
+		'easypiechart',
 
 		'wizardTests',
 		'wizardTests.controllers',

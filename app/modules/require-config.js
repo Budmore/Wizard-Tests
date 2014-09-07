@@ -13,6 +13,7 @@ require.config({
 		'domReady': 'requirejs-domready/domReady',
 		'jQuery': 'jquery/dist/jquery',
 		'underscore': 'underscore/underscore',
+		'angular-easepiechart': 'jquery.easy-pie-chart/dist/angular.easypiechart.min'
 
 	},
 	shim: {
@@ -21,6 +22,7 @@ require.config({
 		'angularCookies': ['angular'],
 		'angularSanitize': ['angular'],
 		'angularResource': ['angular'],
+		'angular-easepiechart': ['angular'],
 		'underscore': {exports: '_'},
 		'jQuery': {exports: '$'},
 	},

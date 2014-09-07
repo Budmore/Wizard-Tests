@@ -1,4 +1,4 @@
-/* Lamps
+/* Main
  ---------------------------------------------------------------------------- */
 body {
   height: 100%;
@@ -28,6 +28,9 @@ header {
 .button-wrapper {
   margin-bottom: 15px;
 }
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
 /* Bootstrap overwrite styles
  ---------------------------------------------------------------------------- */
 .container .page-header {
@@ -42,4 +45,21 @@ header {
 }
 .form-horizontal .form-group {
   margin: 0 0 15px 0;
+}
+/* Charts
+ ---------------------------------------------------------------------------- */
+.box-chart {
+  position: relative;
+  width: 250px;
+  margin: 0 auto;
+}
+.percent-value {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-size: 42px;
+  line-height: 250px;
+}
+.percent-value:after {
+  content: '%';
 }

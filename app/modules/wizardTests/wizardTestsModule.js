@@ -12,6 +12,7 @@
 		'angular',
 		'./wizardTestsUrls',
 
+		'./controllers/ResultController',
 		'./controllers/StepController',
 		'./services/stepService',
 		'./resources/wizardTestResource',
@@ -19,7 +20,7 @@
 		// './locale/en_EN',
 		// './locale/pl_PL'
 
-	], function(angular, wizardTestsUrls, StepController, stepService, wizardTestResource) {
+	], function(angular, wizardTestsUrls, ResultController, StepController, stepService, wizardTestResource) {
 
 
 		var moduleName = 'wizardTests';
@@ -32,6 +33,7 @@
 			.config(wizardTestsUrls);
 
 		angular.module( controllers , [] )
+			.controller('ResultController', ResultController)
 			.controller('StepController', StepController);
 
 		angular.module( services, ['ngResource'] )

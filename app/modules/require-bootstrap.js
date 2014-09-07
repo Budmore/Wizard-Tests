@@ -7,6 +7,7 @@ define([
 	'angularResource',
 	'jQuery',
 	'underscore',
+	'angular-easepiechart',
 
 	'../modules/wizardTests/wizardTestsModule',
 	'../modules/app'

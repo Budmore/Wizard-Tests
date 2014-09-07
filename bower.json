@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "~1.2.18",
-    "font-awesome": "~4.1.0",
+    "font-awesome": "~4.2.0",
     "bootstrap": "~3.1.1",
     "angular-cookies": "~1.2.18",
     "angular-route": "~1.2.18",
@@ -14,7 +14,8 @@
     "requirejs-domready": "~2.0.1",
     "underscore": "~1.6.0",
     "angular-sanitize": "~1.2.18",
-    "angular-resource": "~1.2.18"
+    "angular-resource": "~1.2.18",
+    "jquery.easy-pie-chart": "~2.1.4"
   },
   "private": true
 }

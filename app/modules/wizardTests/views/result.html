@@ -1,21 +1,40 @@
-<div class="step container" ng-controller="StepController">
-	<div class="row">
-		<div class="col-sm-8">
-			<section class="box">
-				<div class="box-inner-slim">
+<div class="step container" ng-controller="ResultController">
 
-				</div>
-			</section>
-			<section class="box">
-				<div class="box-inner text-center">
-
-				</div>
-			</section>
+	<div class="row margin-bottom-20">
+		<div class="box-chart">
+			<div easypiechart options="options" percent="percent">
+				<span class="percent-value">{{ stepValue }}</span>
+			</div>
 		</div>
-		<div class="col-sm-4">
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-12">
 			<section class="box">
 				<div class="box-inner">
+					<div class="responscive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Navigation rule no.</th>
+									<th>Navigation rule title</th>
+									<th>Preview answer</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>23</td>
+									<td></td>
+									<td>
+										<button type="button" class="btn btn-default btn-success">
+											<i class="fa fa-smile-o"> check</i></button>
+									</td>
+								</tr>
+							</tbody>
 
+						</table>
+					</div>
 				</div>
 			</section>
 		</div>
